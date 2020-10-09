@@ -1,20 +1,44 @@
 PODS:
+  - Alamofire (5.2.2)
+  - IQKeyboardManagerSwift (6.5.6)
+  - Kingfisher (5.15.0):
+    - Kingfisher/Core (= 5.15.0)
+  - Kingfisher/Core (5.15.0)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
   - R.swift (5.0.0):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.1)
+  - ReachabilitySwift (5.0.0)
 
 DEPENDENCIES:
+  - IQKeyboardManagerSwift
+  - Kingfisher (~> 5.15)
+  - Moya (~> 14.0)
   - R.swift (= 5.0.0)
+  - ReachabilitySwift
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - Moya
     - R.swift
     - R.swift.Library
+    - ReachabilitySwift
 
 SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  Kingfisher: 1acb67597a520c2d0310677e66d6e0af455ef757
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   R.swift: f88c7d7d48a2be4dffa132dde1b3d389620310eb
   R.swift.Library: cfe85d569d9bae6cb262922db130e7c3a7a5fad1
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
 
-PODFILE CHECKSUM: 45dbe7d2ead87e902c81fb7ab525720251b517cf
+PODFILE CHECKSUM: 22fd5a1d7f03d6cd0c4453be13c6cf3d7d1749ab
 
 COCOAPODS: 1.9.3

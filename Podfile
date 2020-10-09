@@ -10,6 +10,10 @@ inhibit_all_warnings!
 target 'popularMovieApp' do
 
   pod 'R.swift', '5.0.0'
+  pod 'Moya', '~> 14.0'
+  pod 'ReachabilitySwift'
+  pod 'IQKeyboardManagerSwift'
+  pod 'Kingfisher', '~> 5.15'
   
 
   target 'popularMovieAppTests' do

@@ -1,7 +1,7 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/R.swift.Library"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire" "${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher" "${PODS_CONFIGURATION_BUILD_DIR}/Moya" "${PODS_CONFIGURATION_BUILD_DIR}/R.swift.Library" "${PODS_CONFIGURATION_BUILD_DIR}/ReachabilitySwift"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/R.swift.Library/Rswift.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "Rswift"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Kingfisher/Kingfisher.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Moya/Moya.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/R.swift.Library/Rswift.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/ReachabilitySwift/Reachability.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "Accelerate" -framework "Alamofire" -framework "CFNetwork" -framework "CoreGraphics" -framework "CoreTelephony" -framework "Foundation" -framework "IQKeyboardManagerSwift" -framework "Kingfisher" -framework "Moya" -framework "QuartzCore" -framework "Reachability" -framework "Rswift" -framework "SystemConfiguration" -framework "UIKit"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.

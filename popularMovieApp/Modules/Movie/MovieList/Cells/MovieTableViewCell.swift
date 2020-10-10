@@ -13,10 +13,14 @@ class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var movieTitleLabel: UILabel!
     @IBOutlet weak var movieImage: UIImageView!
+    @IBOutlet weak var releaseDate: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var votes: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.selectionStyle = .none
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -29,6 +33,9 @@ class MovieTableViewCell: UITableViewCell {
         var mutatableMovie = movie
         mutatableMovie.prepareForPresentations()
         movieTitleLabel.text = mutatableMovie.originalTitle
+        releaseDate.text = mutatableMovie.releaseDateString
+        rating.text = "\(mutatableMovie.voteAverage ?? 0.0)"
+        votes.text = "\(mutatableMovie.popularity ?? 0.0)"
         movieImage.contentMode = .scaleAspectFill
         movieImage.kf.indicatorType = .activity
         if let urlString = mutatableMovie.posterPath {

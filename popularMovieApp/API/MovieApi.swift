@@ -31,7 +31,20 @@ extension MovieApi: TargetType {
     }
     
     var sampleData: Data {
-        return Data()
+        switch self {
+        case .getPopularMovies:
+            do{
+                guard let url = Bundle.main.url(forResource: "MovieListMock", withExtension: "json") else { return Data() }
+                let data = try Data(contentsOf: url)
+                return data
+            }catch{
+                print(error)
+                return Data()
+            }
+        default:
+            return Data()
+        }
+        
     }
     
     var task: Task {

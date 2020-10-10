@@ -10,7 +10,7 @@ import Foundation
 
 struct MovieModel: Codable {
     var popularity: Double?
-    var voteCount: Double?
+    var voteCount: Int?
     var video: Bool?
     var posterPath: String?
     var id: Int?

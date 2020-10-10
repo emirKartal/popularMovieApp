@@ -39,6 +39,12 @@ extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = movieList[indexPath.row]
+        guard let movieId = movie.id else {return}
+        viewModel.selectMovie(id: movieId)
+    }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == (self.movieList.count - 1) {
             viewModel.getPopularMoviesNextPage()
@@ -59,6 +65,16 @@ extension MovieListViewController: MovieListViewModelDelegate {
             movieListTableView.reloadData()
             break
         case .showError(let errorMessage):
+            showAlert(alertTitle: "Error", alertMessage: errorMessage)
+            break
+        }
+    }
+    
+    func navigate(to route: MovieListRouter) {
+        switch route {
+        case .toMovieDetail(let viewModel):
+            let movieDetailVC = MovieDetailBuilder.make(viewModel: viewModel)
+            self.navigationController?.pushViewController(movieDetailVC, animated: true)
             break
         }
     }

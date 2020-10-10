@@ -52,7 +52,16 @@ final class MovieListViewModel: MovieListViewModelProtocol {
         }
     }
     
+    func selectMovie(id: Int) {
+        let viewModel = MovieDetailViewModel(id: id)
+        navigate(to: .toMovieDetail(viewModel))
+    }
+    
     private func notify(_ output: MovieListViewModelOutput) {
         delegate?.handleMovieListViewModelOutput(output)
+    }
+    
+    private func navigate(to route: MovieListRouter) {
+        delegate?.navigate(to: route)
     }
 }

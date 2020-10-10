@@ -12,6 +12,12 @@ final class MovieListViewModel: MovieListViewModelProtocol {
     private var service: MovieService!
     weak var delegate: MovieListViewModelDelegate?
     
+    //Paging variables
+    private var currentPage: Int!
+    private var totalPages: Int!
+    private var popularMovieList: [MovieModel] = []
+    //-----
+    
     init(isMock: Bool = false) {
         self.service = MovieService(isMock: isMock)
     }
@@ -27,13 +33,22 @@ final class MovieListViewModel: MovieListViewModelProtocol {
             self.notify(.isLoading(false))
             switch result {
             case .success(let responseModel):
-                print(responseModel.totalPages)
-                print(responseModel.results?.count)
-                
+                let movieList = responseModel.results ?? []
+                self.currentPage = page
+                self.totalPages = responseModel.totalPages
+                self.popularMovieList.append(contentsOf: movieList)
+                self.notify(.showPopularMovieList(self.popularMovieList))
                 break
             case .failure(let error):
+                self.notify(.showError(error.localizedDescription))
                 break
             }
+        }
+    }
+    
+    func getPopularMoviesNextPage() {
+        if currentPage <= totalPages {
+            getPopularMovies(page: currentPage + 1)
         }
     }
     

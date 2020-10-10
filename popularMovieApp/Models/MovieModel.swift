@@ -22,5 +22,11 @@ struct MovieModel: Codable {
     var voteAverage: Double?
     var overview: String?
     var releaseDate: Date?
+    var releaseDateString: String?
+    
+    mutating func prepareForPresentations() {
+        self.releaseDateString = releaseDate?.convertToString(format: "dd.MM.yyyy")
+        self.posterPath = IMAGE_URL + (self.posterPath ?? "")
+    }
 }
 

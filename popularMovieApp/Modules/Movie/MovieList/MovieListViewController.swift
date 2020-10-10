@@ -10,16 +10,39 @@ import UIKit
 
 class MovieListViewController: UIViewController {
     
+    @IBOutlet weak var movieListTableView: UITableView!
+    
     var viewModel: MovieListViewModelProtocol! {
         didSet {
             viewModel.delegate = self
         }
     }
+    private var movieList: [MovieModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.load()
         viewModel.getPopularMovies(page: 1)
+    }
+}
+
+extension MovieListViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return movieList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.movieCell, for: indexPath)!
+        let movie = movieList[indexPath.row]
+        cell.populateCell(with: movie)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == (self.movieList.count - 1) {
+            viewModel.getPopularMoviesNextPage()
+        }
     }
 }
 
@@ -30,6 +53,10 @@ extension MovieListViewController: MovieListViewModelDelegate {
             break
         case .updateTitle(let title):
             self.navigationItem.title = title
+            break
+        case .showPopularMovieList(let list):
+            self.movieList = list
+            movieListTableView.reloadData()
             break
         case .showError(let errorMessage):
             break

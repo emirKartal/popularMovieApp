@@ -12,6 +12,7 @@ protocol MovieListViewModelProtocol {
     var delegate: MovieListViewModelDelegate? {get set}
     func load()
     func getPopularMovies(page: Int)
+    func getPopularMoviesNextPage()
 }
 
 protocol MovieListViewModelDelegate: class {
@@ -21,5 +22,6 @@ protocol MovieListViewModelDelegate: class {
 enum MovieListViewModelOutput {
     case isLoading(Bool)
     case updateTitle(String)
+    case showPopularMovieList([MovieModel])
     case showError(String)
 }

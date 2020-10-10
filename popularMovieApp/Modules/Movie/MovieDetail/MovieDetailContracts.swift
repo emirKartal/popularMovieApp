@@ -10,6 +10,9 @@ import Foundation
 
 protocol MovieDetailViewModelProtocol {
     var delegate: MovieDetailViewModelDelegate? {get set}
+    func load()
+    func getMovieDetail()
+    func getCast()
 }
 
 protocol MovieDetailViewModelDelegate: class {
@@ -19,5 +22,6 @@ protocol MovieDetailViewModelDelegate: class {
 enum MovieDetailViewModelOutput {
     case isLoading(Bool)
     case updateTitle(String)
+    case getMovieDetail(MovieDetailModel)
     case showError(String)
 }

@@ -11,6 +11,8 @@ import Moya
 
 enum MovieApi {
     case getPopularMovies(page: Int)
+    case getMovieDetail(id: Int)
+    case getCredits(id: Int)
 }
 
 extension MovieApi: TargetType {
@@ -20,12 +22,16 @@ extension MovieApi: TargetType {
         switch self {
         case .getPopularMovies:
             return "3/movie/popular"
+        case .getMovieDetail(let id):
+            return "3/movie/\(id)"
+        case .getCredits(let id):
+            return "3/movie/\(id)/credits"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .getPopularMovies:
+        case .getPopularMovies, .getMovieDetail, .getCredits:
             return .get
         }
     }
@@ -51,6 +57,9 @@ extension MovieApi: TargetType {
         switch self {
         case .getPopularMovies(let page):
             let parameters: [String: Any] = ["api_key": API_KEY, "page": page]
+            return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
+        case .getMovieDetail, .getCredits:
+            let parameters: [String: Any] = ["api_key": API_KEY]
             return .requestParameters(parameters: parameters, encoding: URLEncoding.queryString)
         }
     }

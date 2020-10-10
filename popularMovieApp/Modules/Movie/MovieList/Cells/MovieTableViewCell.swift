@@ -36,7 +36,7 @@ class MovieTableViewCell: UITableViewCell {
         releaseDate.text = mutatableMovie.releaseDateString
         rating.text = "\(mutatableMovie.voteAverage ?? 0.0)"
         votes.text = "\(mutatableMovie.popularity ?? 0.0)"
-        movieImage.contentMode = .scaleAspectFill
+        
         movieImage.kf.indicatorType = .activity
         if let urlString = mutatableMovie.posterPath {
             let url = URL(string: urlString)

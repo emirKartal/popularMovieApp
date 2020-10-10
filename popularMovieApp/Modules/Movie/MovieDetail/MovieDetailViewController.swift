@@ -62,6 +62,11 @@ extension MovieDetailViewController: UICollectionViewDelegate, UICollectionViewD
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let person = movieDetail?.castList?[indexPath.row]
+        viewModel.personSelected(personId: person?.id ?? 0)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 120, height: 227)
     }
@@ -83,6 +88,15 @@ extension MovieDetailViewController: MovieDetailViewModelDelegate {
             break
         case .showError(let errorMessage):
             showAlert(alertTitle: "Error", alertMessage: errorMessage)
+            break
+        }
+    }
+    
+    func navigate(to route: MovieDetailRouter) {
+        switch route {
+        case .toPersonDetail(let viewModel):
+            let personDetailVC = PersonDetailBuilder.make(viewModel: viewModel)
+            self.navigationController?.pushViewController(personDetailVC, animated: true)
             break
         }
     }

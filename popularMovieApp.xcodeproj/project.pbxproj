@@ -53,6 +53,7 @@
 		30E589C2253270E8003FC4BB /* PersonDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E589C1253270E8003FC4BB /* PersonDetailBuilder.swift */; };
 		30E589C6253275D6003FC4BB /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E589C5253275D6003FC4BB /* PersonModel.swift */; };
 		30E589CA2532772D003FC4BB /* PersonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E589C92532772D003FC4BB /* PersonService.swift */; };
+		30E589D7253312CA003FC4BB /* PersonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E589D6253312CA003FC4BB /* PersonCollectionViewCell.swift */; };
 		4F0F5C90B32790FA24050E85 /* Pods_popularMovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D12703FAFA44D28A1161223 /* Pods_popularMovieApp.framework */; };
 		553FC23C214047CB001D9362 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FC23B214047CB001D9362 /* R.generated.swift */; };
 		C90395241FC622D2006F1DC0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395231FC622D2006F1DC0 /* main.swift */; };
@@ -122,6 +123,7 @@
 		30E589C1253270E8003FC4BB /* PersonDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailBuilder.swift; sourceTree = "<group>"; };
 		30E589C5253275D6003FC4BB /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
 		30E589C92532772D003FC4BB /* PersonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonService.swift; sourceTree = "<group>"; };
+		30E589D6253312CA003FC4BB /* PersonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewCell.swift; sourceTree = "<group>"; };
 		31DE7989C2C99C2F11C06B51 /* Pods-popularMovieAppTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-popularMovieAppTests.staging.xcconfig"; path = "Target Support Files/Pods-popularMovieAppTests/Pods-popularMovieAppTests.staging.xcconfig"; sourceTree = "<group>"; };
 		4D12703FAFA44D28A1161223 /* Pods_popularMovieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_popularMovieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		553FC23B214047CB001D9362 /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -412,12 +414,21 @@
 		30E589B225327088003FC4BB /* PersonDetail */ = {
 			isa = PBXGroup;
 			children = (
+				30E589CD2533128C003FC4BB /* Cells */,
 				30E589B3253270BD003FC4BB /* PersonDetailViewController.swift */,
 				30E589B9253270CD003FC4BB /* PersonDetailContracts.swift */,
 				30E589BD253270DA003FC4BB /* PersonDetailViewModel.swift */,
 				30E589C1253270E8003FC4BB /* PersonDetailBuilder.swift */,
 			);
 			path = PersonDetail;
+			sourceTree = "<group>";
+		};
+		30E589CD2533128C003FC4BB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				30E589D6253312CA003FC4BB /* PersonCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		553FC239214046D0001D9362 /* Generated */ = {
@@ -670,6 +681,7 @@
 				30E5899B25324D64003FC4BB /* GenreModel.swift in Sources */,
 				30E5896D2531E90A003FC4BB /* DateExtensions.swift in Sources */,
 				30E5892D25319E66003FC4BB /* Globals.swift in Sources */,
+				30E589D7253312CA003FC4BB /* PersonCollectionViewCell.swift in Sources */,
 				553FC23C214047CB001D9362 /* R.generated.swift in Sources */,
 				30E5898B25323827003FC4BB /* MovieDetailBuilder.swift in Sources */,
 				30E5891525319C9B003FC4BB /* ErrorProtocol.swift in Sources */,

@@ -18,10 +18,17 @@ struct PersonModel: Codable {
     var popularity: Double?
     var placeOfBirth: String?
     var profilePath: String?
+    var gender: Int?
+    
     var cast: [CastModel]?
+    var birthdayString: String?
+    var deathdayString: String?
     
     mutating func prepareForPresentation(castList: [CastModel]) {
         self.cast = castList
+        self.birthdayString = birthday?.convertToString(format: "dd.MM.yyyy")
+        self.deathdayString = deathday?.convertToString(format: "dd.MM.yyyy")
+        self.profilePath = IMAGE_URL + (self.profilePath ?? "")
     }
 }
 

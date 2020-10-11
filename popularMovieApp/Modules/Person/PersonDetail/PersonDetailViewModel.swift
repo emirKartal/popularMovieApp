@@ -53,8 +53,17 @@ final class PersonDetailViewModel: PersonDetailViewModelProtocol {
             }
         }
     }
+    
+    func selectPersonMovie(movieId: Int) {
+        let viewModel = MovieDetailViewModel(id: movieId)
+        navigate(to: .toMovieDetail(viewModel))
+    }
      
     private func notify(_ output: PersonDetailViewModelOutput) {
         delegate?.handlePersonDetailViewModelOutput(output)
+    }
+    
+    private func navigate(to router: PersonDetailRouter) {
+        delegate?.navigate(to: router)
     }
 }

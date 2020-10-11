@@ -16,5 +16,8 @@ struct CastModel: Codable {
     var name: String?
     var order: Int?
     var profilePath: String?
+    
+    //Properties that below defined for  personCreditMovies API
     var posterPath: String?
+    var title: String?
 }

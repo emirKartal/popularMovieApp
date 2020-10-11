@@ -13,10 +13,12 @@ protocol PersonDetailViewModelProtocol {
     func load()
     func getPersonDetail()
     func getPersonCastMovies()
+    func selectPersonMovie(movieId: Int)
 }
 
 protocol PersonDetailViewModelDelegate: class {
     func handlePersonDetailViewModelOutput(_ output: PersonDetailViewModelOutput)
+    func navigate(to route: PersonDetailRouter)
 }
 
 enum PersonDetailViewModelOutput {
@@ -24,4 +26,8 @@ enum PersonDetailViewModelOutput {
     case updateTitle(String)
     case showPersonDetail(PersonModel)
     case showError(String)
+}
+
+enum PersonDetailRouter {
+    case toMovieDetail(MovieDetailViewModelProtocol)
 }

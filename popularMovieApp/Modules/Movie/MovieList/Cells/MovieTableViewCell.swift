@@ -51,4 +51,24 @@ class MovieTableViewCell: UITableViewCell {
                 ])
         }
     }
+    
+    func populateCellForSearch(with movie: MovieModel) {
+        movieTitleLabel.text = movie.originalTitle
+        releaseDate.text = movie.releaseDateString
+        rating.text = "\(movie.voteAverage ?? 0.0)"
+        votes.text = "\(movie.popularity ?? 0.0)"
+        movieImage.kf.indicatorType = .activity
+        if let urlString = movie.posterPath {
+            let url = URL(string: urlString)
+            let resource = ImageResource(downloadURL: url!)
+            movieImage.kf.setImage(
+                with: resource,
+                placeholder: nil,
+                options: [
+                    .processor(DownsamplingImageProcessor(size: movieImage.bounds.size)),
+                    .scaleFactor(UIScreen.main.scale),
+                    .cacheOriginalImage
+                ])
+        }
+    }
 }

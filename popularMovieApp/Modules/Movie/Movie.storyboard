@@ -119,13 +119,41 @@
                                             <outlet property="votes" destination="i4c-f9-He1" id="6zo-lk-wIm"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="personCell" rowHeight="130" id="67G-5s-9pu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchPersonCell" rowHeight="130" id="67G-5s-9pu" customClass="SearchPersonTableViewCell" customModule="popularMovieApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="158" width="414" height="130"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="67G-5s-9pu" id="jaj-x3-hl7">
                                             <rect key="frame" x="0.0" y="0.0" width="383" height="130"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Par-UD-l8U">
+                                                    <rect key="frame" x="20" y="20" width="80" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="360-CP-bgb"/>
+                                                        <constraint firstAttribute="height" constant="120" id="sMD-RQ-IrW"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHf-oK-FXc">
+                                                    <rect key="frame" x="110" y="55.5" width="255" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Par-UD-l8U" firstAttribute="top" secondItem="jaj-x3-hl7" secondAttribute="top" constant="20" id="0s3-Zl-iez"/>
+                                                <constraint firstItem="sHf-oK-FXc" firstAttribute="centerY" secondItem="jaj-x3-hl7" secondAttribute="centerY" id="1nG-Py-WcJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="Par-UD-l8U" secondAttribute="bottom" constant="20" id="Yaf-yv-8u3"/>
+                                                <constraint firstItem="Par-UD-l8U" firstAttribute="leading" secondItem="jaj-x3-hl7" secondAttribute="leading" constant="20" id="Z9t-Xj-cHu"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="sHf-oK-FXc" secondAttribute="trailing" constant="10" id="e0j-Q2-yjb"/>
+                                                <constraint firstItem="sHf-oK-FXc" firstAttribute="leading" secondItem="Par-UD-l8U" secondAttribute="trailing" constant="10" id="qsM-BB-mFJ"/>
+                                                <constraint firstItem="Par-UD-l8U" firstAttribute="centerY" secondItem="jaj-x3-hl7" secondAttribute="centerY" id="zzK-V3-7ip"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="personImageView" destination="Par-UD-l8U" id="caa-mv-gfw"/>
+                                            <outlet property="personName" destination="sHf-oK-FXc" id="pWR-LJ-ICk"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

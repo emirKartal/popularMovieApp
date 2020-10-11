@@ -10,10 +10,11 @@ import Foundation
 
 protocol MovieListViewModelProtocol {
     var delegate: MovieListViewModelDelegate? {get set}
-    func load()
     func getPopularMovies(page: Int)
     func selectMovie(id: Int)
     func getPopularMoviesNextPage()
+    func search(text: String)
+    func selectPerson(id: Int)
 }
 
 protocol MovieListViewModelDelegate: class {
@@ -23,11 +24,12 @@ protocol MovieListViewModelDelegate: class {
 
 enum MovieListViewModelOutput {
     case isLoading(Bool)
-    case updateTitle(String)
     case showPopularMovieList([MovieModel])
+    case textSearched(SearchModel)
     case showError(String)
 }
 
 enum MovieListRouter {
     case toMovieDetail(MovieDetailViewModelProtocol)
+    case toPersonDetail(PersonDetailViewModelProtocol)
 }

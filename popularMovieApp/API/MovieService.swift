@@ -81,4 +81,38 @@ class MovieService: ServiceProtocol {
             }
         }
     }
+    
+    func getMultiSearchResults(text: String, completion: @escaping(Result<SearchModel, APIError>)-> ()) {
+        self.provider.request(.multiSearch(text: text)) { (result) in
+            switch result {
+            case .success(let response):
+                do{
+                    var movies: [MovieModel] = []
+                    var persons: [PersonModel] = []
+                    let responseModel = try Decoders.mainDecoder.decode(BaseModel<[RawSearchModel]>.self, from: response.data)
+                    let searchListArray = responseModel.results
+                    searchListArray?.forEach({ (searchModel) in
+                        if searchModel.mediaType == "person" {
+                            let person = PersonModel(id: searchModel.id, name: searchModel.name, profilePath: IMAGE_URL + (searchModel.profilePath ?? ""))
+                            persons.append(person)
+                        } else if searchModel.mediaType == "movie" {
+                            let movie = MovieModel(popularity: searchModel.popularity, posterPath: IMAGE_URL + (searchModel.posterPath ?? ""), id: searchModel.id, originalTitle: searchModel.originalTitle, title: searchModel.title, voteAverage: searchModel.voteAverage, releaseDate: searchModel.releaseDate, releaseDateString: searchModel.releaseDate?.convertToString(format: "dd.MM.yyyy"))
+                            movies.append(movie)
+                        }
+                    })
+                    let searchModel = SearchModel(movies: movies, persons: persons)
+                    completion(.success(searchModel))
+                    
+                }catch {
+                    print(error)
+                }
+                break
+            case .failure(let error):
+                let errorMessage = self.getResponseError(from: error)
+                completion(.failure(errorMessage))
+                break
+            }
+        }
+        
+    }
 }

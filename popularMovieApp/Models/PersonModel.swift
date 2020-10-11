@@ -18,5 +18,10 @@ struct PersonModel: Codable {
     var popularity: Double?
     var placeOfBirth: String?
     var profilePath: String?
+    var cast: [CastModel]?
+    
+    mutating func prepareForPresentation(castList: [CastModel]) {
+        self.cast = castList
+    }
 }
 

@@ -12,6 +12,7 @@ protocol PersonDetailViewModelProtocol {
     var delegate: PersonDetailViewModelDelegate? {get set}
     func load()
     func getPersonDetail()
+    func getPersonCastMovies()
 }
 
 protocol PersonDetailViewModelDelegate: class {

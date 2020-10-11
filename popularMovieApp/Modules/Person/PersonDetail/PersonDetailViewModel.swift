@@ -12,6 +12,7 @@ final class PersonDetailViewModel: PersonDetailViewModelProtocol {
     weak var delegate: PersonDetailViewModelDelegate?
     private var service: PersonService!
     private var personId: Int
+    private var person: PersonModel!
     
     init(isMock: Bool = false, personId: Int) {
         service = PersonService(isMock: isMock)
@@ -19,7 +20,7 @@ final class PersonDetailViewModel: PersonDetailViewModelProtocol {
     }
     
     func load() {
-        
+        getPersonDetail()
     }
     
     func getPersonDetail() {
@@ -27,7 +28,9 @@ final class PersonDetailViewModel: PersonDetailViewModelProtocol {
             guard let self = self else {return}
             switch result {
             case .success(let person):
-                self.notify(.showPersonDetail(person))
+                self.person = person
+                self.notify(.updateTitle(person.name ?? ""))
+                self.getPersonCastMovies()
                 break
             case .failure(let error):
                 self.notify(.showError(error.localizedDescription))
@@ -36,6 +39,21 @@ final class PersonDetailViewModel: PersonDetailViewModelProtocol {
         }
     }
     
+    func getPersonCastMovies() {
+        service.getPersonMovieCredits(id: personId) { [weak self] (result) in
+            guard let self = self else {return}
+            switch result {
+            case .success(let castList):
+                self.person.prepareForPresentation(castList: castList)
+                self.notify(.showPersonDetail(self.person))
+                break
+            case .failure(let error):
+                self.notify(.showError(error.localizedDescription))
+                break
+            }
+        }
+    }
+     
     private func notify(_ output: PersonDetailViewModelOutput) {
         delegate?.handlePersonDetailViewModelOutput(output)
     }

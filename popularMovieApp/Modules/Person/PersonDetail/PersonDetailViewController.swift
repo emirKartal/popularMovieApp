@@ -15,10 +15,16 @@ class PersonDetailViewController: UIViewController {
             viewModel.delegate = self
         }
     }
+    
+    private var person: PersonModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.getPersonDetail()
+        viewModel.load()
+    }
+    
+    private func setUIElements() {
+        
     }
 
 }
@@ -31,8 +37,8 @@ extension PersonDetailViewController: PersonDetailViewModelDelegate {
             self.navigationItem.title = title
             break
         case .showPersonDetail(let person):
-            print(person.id)
-            print(person.name)
+            self.person = person
+            setUIElements()
             break
         case .showError(let errorMessage):
             showAlert(alertTitle: "Error", alertMessage: errorMessage)

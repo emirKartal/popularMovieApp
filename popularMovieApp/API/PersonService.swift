@@ -20,7 +20,7 @@ class PersonService: ServiceProtocol {
         }
     }
     
-    func getPersonDetail(id: Int, completion: @escaping(Result< PersonModel, APIError>)-> ()) {
+    func getPersonDetail(id: Int, completion: @escaping(Result<PersonModel, APIError>)-> ()) {
         provider.request(.personDetail(id: id)) { (result) in
             switch result {
             case .success(let response):
@@ -37,6 +37,27 @@ class PersonService: ServiceProtocol {
                 completion(.failure(errorMessage))
                 break
                 
+            }
+        }
+    }
+    
+    func getPersonMovieCredits(id: Int, completion: @escaping(Result<[CastModel], APIError>)-> ()) {
+        provider.request(.personMovieCredits(id: id)) { (result) in
+            switch result {
+            case .success(let response):
+                do {
+                    let creditModel = try Decoders.mainDecoder.decode(CreditModel.self, from: response.data)
+                    let castList = creditModel.cast ?? []
+                    completion(.success(castList))
+                }catch {
+                    print(error)
+                    completion(.failure(.parseError))
+                }
+                break
+            case .failure(let error):
+                let errorMessage = self.getResponseError(from: error)
+                completion(.failure(errorMessage))
+                break
             }
         }
     }

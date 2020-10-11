@@ -16,4 +16,5 @@ struct CastModel: Codable {
     var name: String?
     var order: Int?
     var profilePath: String?
+    var posterPath: String?
 }

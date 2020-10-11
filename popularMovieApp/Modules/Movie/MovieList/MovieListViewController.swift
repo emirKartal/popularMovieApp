@@ -56,6 +56,7 @@ extension MovieListViewController: MovieListViewModelDelegate {
     func handleMovieListViewModelOutput(_ output: MovieListViewModelOutput) {
         switch output {
         case .isLoading(let isLoading):
+            isLoading ? Spinner.start() : Spinner.stop()
             break
         case .updateTitle(let title):
             self.navigationItem.title = title

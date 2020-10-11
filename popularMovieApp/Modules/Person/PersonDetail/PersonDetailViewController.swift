@@ -76,6 +76,7 @@ extension PersonDetailViewController: PersonDetailViewModelDelegate {
     func handlePersonDetailViewModelOutput(_ output: PersonDetailViewModelOutput) {
         switch output {
         case .isLoading(let isLoading):
+            isLoading ? Spinner.start() : Spinner.stop()
             break
         case .updateTitle(let title):
             self.navigationItem.title = title

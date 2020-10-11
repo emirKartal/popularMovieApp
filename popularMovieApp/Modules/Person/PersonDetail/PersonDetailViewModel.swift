@@ -24,6 +24,7 @@ final class PersonDetailViewModel: PersonDetailViewModelProtocol {
     }
     
     func getPersonDetail() {
+        notify(.isLoading(true))
         service.getPersonDetail(id: personId) { [weak self](result) in
             guard let self = self else {return}
             switch result {
@@ -33,6 +34,7 @@ final class PersonDetailViewModel: PersonDetailViewModelProtocol {
                 self.getPersonCastMovies()
                 break
             case .failure(let error):
+                self.notify(.isLoading(false))
                 self.notify(.showError(error.localizedDescription))
                 break
             }
@@ -42,6 +44,7 @@ final class PersonDetailViewModel: PersonDetailViewModelProtocol {
     func getPersonCastMovies() {
         service.getPersonMovieCredits(id: personId) { [weak self] (result) in
             guard let self = self else {return}
+            self.notify(.isLoading(false))
             switch result {
             case .success(let castList):
                 self.person.prepareForPresentation(castList: castList)

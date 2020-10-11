@@ -54,6 +54,7 @@
 		30E589C6253275D6003FC4BB /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E589C5253275D6003FC4BB /* PersonModel.swift */; };
 		30E589CA2532772D003FC4BB /* PersonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E589C92532772D003FC4BB /* PersonService.swift */; };
 		30E589D7253312CA003FC4BB /* PersonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E589D6253312CA003FC4BB /* PersonCollectionViewCell.swift */; };
+		30E589DB25331E7F003FC4BB /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E589DA25331E7F003FC4BB /* Spinner.swift */; };
 		4F0F5C90B32790FA24050E85 /* Pods_popularMovieApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D12703FAFA44D28A1161223 /* Pods_popularMovieApp.framework */; };
 		553FC23C214047CB001D9362 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553FC23B214047CB001D9362 /* R.generated.swift */; };
 		C90395241FC622D2006F1DC0 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90395231FC622D2006F1DC0 /* main.swift */; };
@@ -124,6 +125,7 @@
 		30E589C5253275D6003FC4BB /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
 		30E589C92532772D003FC4BB /* PersonService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonService.swift; sourceTree = "<group>"; };
 		30E589D6253312CA003FC4BB /* PersonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCollectionViewCell.swift; sourceTree = "<group>"; };
+		30E589DA25331E7F003FC4BB /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
 		31DE7989C2C99C2F11C06B51 /* Pods-popularMovieAppTests.staging.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-popularMovieAppTests.staging.xcconfig"; path = "Target Support Files/Pods-popularMovieAppTests/Pods-popularMovieAppTests.staging.xcconfig"; sourceTree = "<group>"; };
 		4D12703FAFA44D28A1161223 /* Pods_popularMovieApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_popularMovieApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		553FC23B214047CB001D9362 /* R.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 				2A1DD4E01F389E2100712195 /* NotificationsHandler.swift */,
 				30E5891C25319D3E003FC4BB /* Decoders.swift */,
 				30E5892C25319E66003FC4BB /* Globals.swift */,
+				30E589DA25331E7F003FC4BB /* Spinner.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -694,6 +697,7 @@
 				30E589BA253270CD003FC4BB /* PersonDetailContracts.swift in Sources */,
 				30E589BE253270DA003FC4BB /* PersonDetailViewModel.swift in Sources */,
 				30E589332531A563003FC4BB /* MovieModel.swift in Sources */,
+				30E589DB25331E7F003FC4BB /* Spinner.swift in Sources */,
 				30E589832532380D003FC4BB /* MovieDetailContracts.swift in Sources */,
 				30E5892525319DF9003FC4BB /* StatusPlugin.swift in Sources */,
 				30E5898725323818003FC4BB /* MovieDetailViewModel.swift in Sources */,
